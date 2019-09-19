@@ -15,6 +15,7 @@ height:500px;
 
 const AboutMe = styled.div`
 // border:2px solid red;
+// margin-top:20px;
 width:100%;
 height:500px;
 display flex;
@@ -30,6 +31,7 @@ Button{
     justify-content:center;
     margin: 0 auto;
     color:white;
+    border: 1px solid grey;
     
 .button{
     color:white;
@@ -90,7 +92,7 @@ class Home extends Component {
                     <p>Hard-working professional with 13+ years of experience and a proven knowledge of project lifecycle,
 troubleshooting, and desktop technology. Aiming to leverage my skills to successfully fill the Full Stack Web
 Developer of Front End Web Developer role at your company.</p>
-                    <button><Link to={Resume} className="button" target="_blank" download>Download</Link></button>
+                    <button><Link to={Resume} className="button" target="_blank" download>Download Resume</Link></button>
                     <button><a href="https://www.linkedin.com/in/shaun-kolich-98517450/" className="button" target="_blank">LinkedIn</a></button>
                     <button><a href="https://github.com/ShaunKolich" className="button" target="_blank">GitHub</a></button>
                 </AboutMe>
