@@ -1,97 +1,108 @@
 import React from 'react';
-import styled from 'styled-components';
+import logo from './logo.svg';
 import './App.css';
-import { Link, Route } from 'react-router-dom';
-import { Row, Col } from 'fluid-react';
+import styled from 'styled-components';
+import { Container, Row, Col } from 'fluid-react';
+import Menu from './components/main-nav';
+import Logo from '../src/img/e43e0e8c-3b34-46e3-9154-d94adb1bf0ff_200x200 (1).png';
+import { Button } from 'reactstrap';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Home from './pages/home'
 
-const HeaderDiv = styled.div`
+const MainContainer = styled.div`
 width:100%;
-height:50px;
-// border:2px solid red;
-background-color:black;
-display:flex;
-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-
-ul{
-  display:flex;  
-  justify-content:space-between;
-  align-items:center;
-  height:50px;
-  width:100%;
-  // border:2px solid white;
-}
-
-li{
-  list-style:none;
-  color:white;
-  // padding-bottom:10px;
-}
-
-.nav{
-  color:white;
-  list-style:none;
-  font-size:2.8vh;
-}
-
-.nav:hover{
-  border-bottom: 1px solid white;
-}
+// border:2px solid blue;
+height:100px;
 
 `;
 
-const Logo = styled.div `
-color:white;
-// border:2px solid white;
-width:100%;
+const LogoDiv = styled.div`
+width: 30vh;
+height:100%;
+display:flex;
+justify-content:center;
 
-h1{
-  display:flex;
-  justify-content:center;
-  font-size:5vh;
-  width:100%;
-  // border:2px solid white;
+img {
+  max-width:150%;
+  height:auto;
 }
+`;
+
+const LoginButton = styled.div`
+// border:2px solid red;
+width:100%;
+height:80px;
+display:flex;
+  flex-direction: row;
+  justify-content:center;
+  align-items:flex-end;
+  outline: none;
+  
+
+Button {
+  width:15vh;
+  height:50%;
+  // display:flex;
+  // flex-direction: row;
+  // justified-content:center;
+  outline: none!important;
+  color:grey;
+  border-color:grey;
+  
+
+}
+Button:hover{
+  background-color: black;
+  border-color:black;
+  outline: none;
+  
+}
+Button:focus{
+  outline:none;
+}
+
 
 
 `;
 
 function App() {
   return (
-    <div>
-     <Row>
-      <HeaderDiv>
-          
-            <Col xs ='6'>
-              <nav>
-                  <ul>
-                    <li><Link to = "/" className= "nav">Home</Link></li>
-                    <li><Link to = "/Portfolio" className= "nav">Portfolio</Link></li>
-                    <li><Link to = "/AboutUs" className= "nav">About Us</Link></li>
-                    <li><Link to = "/Contact" className= "nav">Contact</Link></li>
-                  </ul>
+    <div className="App">
 
-              </nav>
-          </Col>
-          <Logo>
-                <Col>
-                  
-                      <h1>Shaun Kolich</h1>
-                  
-                </Col>
-                </Logo>
-         
-      </HeaderDiv>
-      </Row>
-
+      <Router>
+        <Container>
+          <MainContainer>
+            <Row>
+              <Col>
+                <Menu />
+              </Col>
+              <Col>
+                <LogoDiv>
+                  <Link to={'/'} className='nav-link'>
+                    <img src={Logo} alt="logo"></img>
+                  </Link>
+                </LogoDiv>
+              </Col>
+              <Col>
+                <Row>
+                  {/* <LoginButton>
+                    <Button outline color="info">Login</Button>{' '}
+                    <Button outline color="info">Register</Button>{' '}
+                  </LoginButton> */}
+                </Row>
+              </Col>
 
 
+            </Row>
+          </MainContainer>
+          <Switch>
+            <Route exact path='/' component={Home} />
+          </Switch>
+        </Container>
 
-    
+      </Router>
 
-
-
-
-    </div>  
+    </div>
   );
 }
 
