@@ -107,7 +107,7 @@ class Slider extends React.Component {
             // width:50px;
             // height:50px;
             // text-align:center;
-            border:grey;
+            border:1 px solid grey;
         }
         .button{
             color:white;
